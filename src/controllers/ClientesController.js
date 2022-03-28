@@ -41,6 +41,7 @@ class ClientesController {
             estado,
             cidade,
             cep,
+            nome_produtos,
         } = req.body
 
         if (
@@ -48,7 +49,8 @@ class ClientesController {
             !endereco ||
             !estado ||
             !cidade ||
-            !cep
+            !cep ||
+            !nome_produtos
         ) {
             return res.status(401).json({
                 status: 401,
@@ -69,6 +71,7 @@ class ClientesController {
             estado,
             cidade,
             cep,
+            nome_produtos,
         }
         try {
             await ClientesModels.create(newprodutos)
@@ -87,6 +90,7 @@ class ClientesController {
             estado,
             cidade,
             cep,
+            nome_produtos,
         } = req.body
 
         const clientes = await ClientesModels.findOne({ where: { id: id }, raw: true })
@@ -103,6 +107,7 @@ class ClientesController {
             estado,
             cidade,
             cep,
+            nome_produtos,
         }
 
         try {
