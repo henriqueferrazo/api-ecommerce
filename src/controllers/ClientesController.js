@@ -40,7 +40,7 @@ class ClientesController {
             endereco,
             estado,
             cidade,
-            cep,
+            cep
         } = req.body
 
         if (

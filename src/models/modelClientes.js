@@ -23,7 +23,7 @@ const Clientes = Sequelize.define('Clientes', {
     cep:{
         type:DataTypes.STRING,
         allowNull:false
-    },
+    }
 
 })
 
