@@ -41,7 +41,6 @@ class ClientesController {
             estado,
             cidade,
             cep,
-            nome_produtos,
         } = req.body
 
         if (
@@ -49,9 +48,8 @@ class ClientesController {
             !endereco ||
             !estado ||
             !cidade ||
-            !cep ||
-            !nome_produtos
-        ) {
+            !cep 
+            ) {
             return res.status(401).json({
                 status: 401,
                 message: 'Todos os campos precisam ser preenchidos!'
@@ -70,8 +68,7 @@ class ClientesController {
             endereco,
             estado,
             cidade,
-            cep,
-            nome_produtos,
+            cep
         }
         try {
             await ClientesModels.create(newprodutos)
