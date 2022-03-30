@@ -4,7 +4,7 @@ const { Produtos } = require('./src/models/modelProdutos.js');
 const { Clientes } = require('./src/models/modelClientes.js');
 const { Pedidos } = require('./src/models/modelsPedidos.js');
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT
 const clientesRouters = require('./src/router/ClientesRouters.js');
 const produtosRouters = require('./src/router/ProdutosRouters.js');
 const pedidosRouters = require('./src/router/PedidosRouters.js');
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 async function sicronizar(){
 try{
     await Sequelize.sync()
-    app.listen(port, () => console.log("Backend On"))
+    app.listen(PORT, () => console.log("Backend On"))
 }catch(error){
     console.log(`erro ao conectar o ${error}`);
 }
