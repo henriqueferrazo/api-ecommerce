@@ -12,7 +12,7 @@ const Pedidos = Sequelize.define('Pedidos', {
 
 })
 
-Pedidos.belongsTo(Produtos,{foreignKey:"id_Produtos"});
-Pedidos.belongsTo(Clientes, {foreignKey:"id_Clientes"});
+Pedidos.belongsTo(Produtos,{foreignKey:"id_produtos"});
+Pedidos.belongsTo(Clientes, {foreignKey:"id_clientes"});
 
 module.exports = Pedidos;
