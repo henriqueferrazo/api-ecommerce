@@ -4,11 +4,13 @@ const { Produtos } = require('./src/models/modelProdutos.js');
 const { Clientes } = require('./src/models/modelClientes.js');
 const { Pedidos } = require('./src/models/modelsPedidos.js');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 const clientesRouters = require('./src/router/ClientesRouters.js');
 const produtosRouters = require('./src/router/ProdutosRouters.js');
 const pedidosRouters = require('./src/router/PedidosRouters.js');
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.json());
 app.use('/clientes', clientesRouters);
 app.use('/produtos', produtosRouters);

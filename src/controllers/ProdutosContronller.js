@@ -76,41 +76,6 @@ class ProdutosController {
             return res.status(401).json({ status: 401, message: error.message })
         }
     }
-    static async updateById(req, res) {
-        const { id } = req.params
-        const {
-            imagem,
-            nome,
-            descricao,
-            preco,
-        } = req.body
-
-        const produtos = await ProdutosModels.findOne({ where: { id: id }, raw: true })
-
-        if (!produtos) {
-            return res.status(401).json({
-                status: 401,
-                message: 'Produto não encontrado'
-            })
-        }
-        const novosDados = {
-            imagem,
-            nome,
-            descricao,
-            preco,
-        }
-
-        try {
-            await ProdutosModels.update(novosDados, { where: produtos })
-            return res
-                .status(200)
-                .json({ status: 200, message: 'Atualizado com sucesso!' })
-        } catch (error) {
-            return res
-                .status(400)
-                .json({ status: 400, message: `Algo deu errado: ${error}` })
-        }
-    }
 
     static async deleteById(req, res) {
         const { id } = req.params

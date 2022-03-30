@@ -9,6 +9,8 @@ router.post('/registrar', ProdutosControllerRouter.create)
 
 router.get('/', ProdutosControllerRouter.showAll)
 
+router.get('/:id', ProdutosControllerRouter.showById)
+
 router.delete('/:id', ProdutosControllerRouter.deleteById)
 
 

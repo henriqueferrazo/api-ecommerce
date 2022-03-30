@@ -82,52 +82,12 @@ class ClientesController {
             return res.status(401).json({ status: 401, message: error.message })
         }
     }
-    static async updateById(req, res) {
-        const { id } = req.params
-        const {
-            nome,
-            endereco,
-            estado,
-            cidade,
-            cep,
-            nome_produtos,
-        } = req.body
-
-        const clientes = await ClientesModels.findOne({ where: { id: id }, raw: true })
-
-        if (!clientes) {
-            return res.status(401).json({
-                status: 401,
-                message: 'Franquia não encontrado'
-            })
-        }
-        const novosDados = {
-            nome,
-            endereco,
-            estado,
-            cidade,
-            cep,
-            nome_produtos,
-        }
-
-        try {
-            await ClientesModels.update(novosDados, { where: clientes })
-            return res
-                .status(200)
-                .json({ status: 200, message: 'Atualizado com sucesso!' })
-        } catch (error) {
-            return res
-                .status(400)
-                .json({ status: 400, message: `Algo deu errado: ${error}` })
-        }
-    }
-
     static async deleteById(req, res) {
         const { id } = req.params
 
         const cliente = await ClientesModels.findOne({ where: { id: id }, raw: true })
 
-        if (!clientes) {
+        if (!cliente) {
             return res.status(401).json({
                 status: 401,
                 message: 'Cliente não encontrado!'
