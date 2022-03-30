@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 async function sicronizar(){
 try{
     await Sequelize.sync()
-    app.listen(PORT, () => console.log("Backend On"))
+    app.listen(PORT)
 }catch(error){
     console.log(`erro ao conectar o ${error}`);
 }
